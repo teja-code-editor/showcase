@@ -1,0 +1,34 @@
+<style>
+    :host {
+    width: 400px;
+    height: 400px;
+    display: block;
+    }
+
+    .editor {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 1px solid black;
+    font-size: 20px;
+    line-height: 20px;
+    }
+</style>
+
+<div class="editor" (keydown)="keydown($event)" (keypress)="keypress($event)" tabindex="0">
+    <div class="line" *ngFor="let line of view.lines">
+        <div class="char" *ngFor="let char of line.text">{{char}}</div>
+    </div>
+</div>
+
+<div>
+    <div layout horizontal center>
+        <div>Command mode:</div>
+        <div>{{view.commandMode}}</div>
+    </div>
+
+    <div layout horizontal center>
+        <div>Replace:</div>
+        <div>{{view.replaceMode}}</div>
+    </div>
+</div>
